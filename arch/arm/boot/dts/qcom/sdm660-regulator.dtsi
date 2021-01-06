@@ -509,8 +509,8 @@
 	gfx_stub_vreg: regulator-gfx-stub {
 		compatible = "qcom,stub-regulator";
 		regulator-name = "gfx_stub_corner";
-		regulator-min-microvolt = <400000>;
-		regulator-max-microvolt = <1070000>;
+		regulator-min-microvolt = <420000>;
+		regulator-max-microvolt = <1090000>;
 	};
 };
 
@@ -534,8 +534,8 @@
 		reg = <0x0506e000 0x34>;
 		reg-names = "ldo_addr";
 		regulator-name = "msm_gfx_ldo";
-		regulator-min-microvolt = <400000>;
-		regulator-max-microvolt = <925000>;
+		regulator-min-microvolt = <420000>;
+		regulator-max-microvolt = <945000>;
 	};
 
 /* CPR controller regulators */
@@ -586,11 +586,11 @@
 				qcom,cpr-corner-fmax-map = <1 2 3 4 5 6>;
 
 				qcom,cpr-voltage-ceiling =
-					<535000  595000  675000  740000
-					 820000  875000 1020000>;
+					<545000  605000  685000  750000
+					 830000  885000 1030000>;
 				qcom,cpr-voltage-floor =
-					<454000  454000  546000  602000
-					 662000  694000 1020000>;
+					<464000  464000  556000  612000
+					 672000  704000 1030000>;
 
 				qcom,mem-acc-voltage = <1 1 1 2 2 2 2>;
 				qcom,system-voltage =
@@ -736,12 +736,12 @@
 					<2 3 4 5 8>;
 
 				qcom,cpr-voltage-ceiling =
-					< 644000  644000  644000  708000  788000
-					 988000 988000 988000>;
+					< 645000  645000  645000  709000  789000
+					 989000 989000 989000>;
 
 				qcom,cpr-voltage-floor =
-					<508000  508000  516000  572000  632000
-					 664000  704000  764000>;
+					<509000  509000  517000  573000  633000
+					 665000  705000  765000>;
 
 				qcom,corner-frequencies =
 					/* Speed bin 0 */
@@ -793,8 +793,8 @@
 					(-21000)>;
 
 				qcom,cpr-floor-to-ceiling-max-range =
-					<32000  32000  32000  40000  44000
-					 40000  40000  40000>;
+					<33000  33000  33000  41000  45000
+					 41000  41000  41000>;
 			};
 		};
 	};
