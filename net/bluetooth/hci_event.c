@@ -4336,11 +4336,6 @@ static void hci_phy_link_complete_evt(struct hci_dev *hdev,
 		return;
 	}
 
-	if (!hcon->amp_mgr) {
-		hci_dev_unlock(hdev);
-		return;
-	}
-
 	if (ev->status) {
 		hci_conn_del(hcon);
 		hci_dev_unlock(hdev);
