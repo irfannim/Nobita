@@ -792,19 +792,18 @@ static int bcm2835_spi_probe(struct platform_device *pdev)
 			       dev_name(&pdev->dev), master);
 	if (err) {
 		dev_err(&pdev->dev, "could not request IRQ: %d\n", err);
-		goto out_dma_release;
+		goto out_clk_disable;
 	}
 
 	err = spi_register_master(master);
 	if (err) {
 		dev_err(&pdev->dev, "could not register SPI master: %d\n", err);
-		goto out_dma_release;
+		goto out_clk_disable;
 	}
 
 	return 0;
 
-out_dma_release:
-	bcm2835_dma_release(master);
+out_clk_disable:
 	clk_disable_unprepare(bs->clk);
 	return err;
 }
