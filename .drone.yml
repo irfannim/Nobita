@@ -1,5 +1,5 @@
 kind: pipeline
-name: Nobita Kernel
+name: hmp-oldcam
 
 clone:
   depth: 1

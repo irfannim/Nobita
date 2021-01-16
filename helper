@@ -80,8 +80,8 @@ build(){
 
 	if [ $2 == "-oldcam" ]
 	then
-		make_build "lavender-perf_defconfig"
+		make_build "_defconfig"
 	else
-	    make_build "lavender-perf_defconfig"
+	    make_build "-newcam_defconfig"
 	fi
 }
