@@ -44,9 +44,23 @@ send_file(){
 		-F caption="✅ Build succesfully! | DEVICE: ${type} | SHA1 : $(sha1sum ${file} | awk '{ print $1 }')" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
-        send_file $1
 }
 
+mkzip(){
+	print "Generate zip file..." green
+
+	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz-dtb ]; then
+         cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
+         cd anykernel
+         zip -r9 ../$1 * -x .git README.md *placeholder
+         cd ..
+         send_file $1
+    else
+         send_msg "Build error !"
+         print "Build error !" red
+         exit 1
+    fi
+}
 
 print(){
 	echo ""
@@ -70,6 +84,7 @@ gen_toolchain(){
 		git clone --depth=1 https://github.com/chips-project/aarch64-elf gcc64
 		git clone --depth=1 https://github.com/chips-project/arm-eabi gcc32
 	fi
+	git clone --depth=1 https://github.com/frostid/AnyKernel3 -b master anykernel
 }
 
 build(){
@@ -80,8 +95,9 @@ build(){
 
 	if [ $2 == "-oldcam" ]
 	then
-		make_build "lavender-old_defconfig"
+		make_build "${1}-oldcam_defconfig"
 	else
-	    make_build "lavender-new_defconfig"
+	    make_build "${1}-newcam_defconfig"
 	fi
+	    mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3-$DATE.zip"
 }

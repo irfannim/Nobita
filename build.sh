@@ -2,7 +2,7 @@
 
 export KERNELNAME=Nobita
 
-export LOCALVERSION=Nobita_X-r2.5-
+export LOCALVERSION=X-r2.5
 
 export KBUILD_BUILD_USER=irfannim
 
@@ -24,6 +24,8 @@ for i in ${DEVICES//,/ }
 do 
 
 	build ${i} -oldcam
+	
+	build ${i} -newcam
 
 done
 
