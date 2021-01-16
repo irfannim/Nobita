@@ -2,7 +2,7 @@
 
 export KERNELNAME=Nobita
 
-export LOCALVERSION=X
+export LOCALVERSION=Nobita_X-r2.5-
 
 export KBUILD_BUILD_USER=irfannim
 
