@@ -78,7 +78,7 @@ build(){
 
 	make_clean
 
-	if [ $2 == "hmp-oldcam" ]
+	if [ $2 == "-oldcam" ]
 	then
 		make_build "lavender-perf_defconfig"
 	else
