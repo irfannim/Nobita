@@ -6,7 +6,7 @@ export LOCALVERSION=X-r2.5
 
 export KBUILD_BUILD_USER=irfannim
 
-export KBUILD_BUILD_HOST=DroneCI
+export KBUILD_BUILD_HOST=fanproject
 
 export TOOLCHAIN=clang
 
