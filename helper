@@ -95,9 +95,9 @@ build(){
 
 	if [ $2 == "-oldcam" ]
 	then
-		make_build "${1}lavender-perf_defconfig"
+		make_build "lavender-perf_defconfig"
 	else
-       	    make_build "${1}lavender-perf_defconfig"
+       	    make_build "lavender-perf_defconfig"
 	fi
 	    mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3-$DATE.zip"
 }
