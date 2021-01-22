@@ -4135,6 +4135,9 @@ static int fg_psy_set_property(struct power_supply *psy,
 		if (rc < 0)
 			pr_err("Error in saving learned_cc_uah, rc=%d\n", rc);
 		break;
+	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
+			chip->cl.nom_cap_uah = pval->intval;
+		break;
 	case POWER_SUPPLY_PROP_COLD_TEMP:
 		rc = fg_set_jeita_threshold(chip, JEITA_COLD, pval->intval);
 		if (rc < 0) {
