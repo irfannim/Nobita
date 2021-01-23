@@ -2,7 +2,7 @@
 
 export KERNELNAME=Nobita
 
-export LOCALVERSION=X-r2.5
+export LOCALVERSION=
 
 export KBUILD_BUILD_USER=irfannim
 
@@ -16,19 +16,19 @@ source helper
 
 gen_toolchain
 
-send_msg "⏳ Start building ${KERNELNAME} ${LOCALVERSION} for ${DEVICES}..."
+send_msg "⏳Build Di Mulai for ${DEVICES}..."
 
 START=$(date +"%s")
 
 for i in ${DEVICES//,/ }
-do 
+do
 
-	build ${i} -oldcam
-	
-	build ${i} -newcam
+		build ${i} -oldcam
+
+		build ${i} -newcam
 
 done
 
 END=$(date +"%s")
- 
+
 DIFF=$(( END - START ))

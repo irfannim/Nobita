@@ -2,15 +2,15 @@ kind: pipeline
 name: Nobita
 
 clone:
-  depth: 1
+	depth: 1
 
 steps:
-  - name: Building
-    image: fadlyas/kernel_dockerfile
-    environment:
-      bot_token:
-        from_secret: bot_token
-      chat_id:
-        from_secret: chat_id
-    command:
-    - bash build.sh
+	- name: Building
+	  image: fadlyas/kernel_dockerfile
+	  environment:
+		bot_token:
+			from_secret: bot_token
+		chat_id:
+			from_secret: chat_id
+	  command:
+	  - bash build.sh

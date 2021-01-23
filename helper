@@ -1,11 +1,11 @@
-   #!/bin/bash
+#!/bin/bash
 
 DATE=$(date +"%Y%m%d-%H%M")
 
 make_build(){
 	print "Make kernel dtb..." green
 	if [ $TOOLCHAIN == clang ]; then
-		export KBUILD_COMPILER_STRING=$(clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/:space:*$//')
+		export KBUILD_COMPILER_STRING=$(clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH="$(pwd)/clang/bin:${PATH}"
 		make O=out ARCH=arm64 $1
 		make -j$(nproc --all) O=out \
@@ -50,16 +50,16 @@ mkzip(){
 	print "Generate zip file..." green
 
 	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz-dtb ]; then
-		cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
-		cd anykernel
-		zip -r9 ../$1 * -x .git README.md *placeholder
-		cd ..
-		send_file $1
-	else
-		send_msg "Build error !"
-		print "Build error !" red
-		exit 1
-	fi
+         cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
+         cd anykernel
+         zip -r9 ../$1 * -x .git README.md *placeholder
+         cd ..
+         send_file $1
+    else
+         send_msg "Build error !"
+         print "Build error !" red
+         exit 1
+    fi
 }
 
 print(){
@@ -97,7 +97,7 @@ build(){
 	then
 		make_build "${1}-perf_defconfig"
 	else
-		make_build "${1}-perf_defconfig"
+	    make_build "${1}-perf_defconfig"
 	fi
-		mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3}-$DATE.zip"
+	    mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3-$DATE.zip"
 }
