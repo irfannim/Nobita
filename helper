@@ -41,7 +41,7 @@ send_msg(){
 send_file(){
 	print "Sending file..." green
 	curl -F chat_id="${chat_id}" \
-		-F caption="✅ Build succesfully! | DEVICE: ${type} | SHA1 : $(sha1sum ${file} | awk '{ print $1 }')" \
+		-F caption="Build Berhasil! | Hp Kentang: ${type} | Slogan:Pejuang Subuh" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
 }
@@ -50,16 +50,16 @@ mkzip(){
 	print "Generate zip file..." green
 
 	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz-dtb ]; then
-         cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
-         cd anykernel
-         zip -r9 ../$1 * -x .git README.md *placeholder
-         cd ..
-         send_file $1
-    else
-         send_msg "Build error !"
-         print "Build error !" red
-         exit 1
-    fi
+		cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
+		cd anykernel
+		zip -r9 ../$1 * -x .git README.md *placeholder
+		cd ..
+		send_file $1
+	else
+		send_msg "Build Gagal! , Harap Cek lagi"
+		print "Build error !" red
+		exit 1
+	fi
 }
 
 print(){
@@ -97,7 +97,7 @@ build(){
 	then
 		make_build "${1}-perf_defconfig"
 	else
-	    make_build "${1}-perf_defconfig"
+		make_build "${1}-perf_defconfig"
 	fi
-	    mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3-$DATE.zip"
+		mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3}-$DATE.zip"
 }
