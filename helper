@@ -41,7 +41,7 @@ send_msg(){
 send_file(){
 	print "Sending file..." green
 	curl -F chat_id="${chat_id}" \
-		-F caption="Build Berhasil! | Hp Kentang: ${type} | Slogan:Pejuang Subuh" \
+		-F caption="Build Berhasil! | Nobita: ${type} | fanproject" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
 }
@@ -97,7 +97,7 @@ build(){
 	then
 		make_build "${1}-perf_defconfig"
 	else
-		make_build "${1}-perf_defconfig"
+		make_build "${1} lavender-perf_defconfig"
 	fi
 		mkzip "$KERNELNAME-$LOCALVERSION-${1}${2}${3}-$DATE.zip"
 }
