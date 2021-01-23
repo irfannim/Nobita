@@ -49,8 +49,8 @@ send_file(){
 mkzip(){
 	print "Generate zip file..." green
 
-	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz-dtb ]; then
-		cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
+	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz ]; then
+		cp $(pwd)/out/arch/arm64/boot/Image.gz  anykernel
 		cd anykernel
 		zip -r9 ../$1 * -x .git README.md *placeholder
 		cd ..
@@ -84,7 +84,6 @@ gen_toolchain(){
 		git clone --depth=1 https://github.com/chips-project/aarch64-elf gcc64
 		git clone --depth=1 https://github.com/chips-project/arm-eabi gcc32
 	fi
-	git clone --depth=1 https://github.com/irfannim/AnyKernel3 -b master anykernel
 }
 
 build(){

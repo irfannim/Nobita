@@ -25,8 +25,6 @@ do
 
 	build ${i} -oldcam
 
-        build ${i} -newcam
-
 done
 
 END=$(date +"%s")
