@@ -2,7 +2,7 @@
 
 export KERNELNAME=Nobita
 
-export LOCALVERSION=
+export LOCALVERSION=-hmp
 
 export KBUILD_BUILD_USER=irfannim
 
