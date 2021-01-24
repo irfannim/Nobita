@@ -41,7 +41,7 @@ send_msg(){
 send_file(){
 	print "Sending file..." green
 	curl -F chat_id="${chat_id}" \
-		-F caption="Build Berhasil! | Nobita: ${type} | fanproject" \
+		-F caption="Build Berhasil! | Nobita ${type} | fanproject" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
 }
@@ -56,7 +56,7 @@ mkzip(){
 		cd ..
 		send_file $1
 	else
-		send_msg "Build Gagal! , Harap Cek lagi"
+		send_msg "Build Gagal!, Harap Cek lagi"
 		print "Build error !" red
 		exit 1
 	fi
