@@ -55,13 +55,6 @@ mkzip(){
 		zip -r9 ../$1 * -x .git README.md *placeholder
 		cd ..
 		send_file $1
-	then
-	   [ -f $(pwd)/out/arch/arm64/boot/Image.gz-dtb ]; then
-		cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
-		cd anykernel
-		zip -r9 ../$1 * -x .git README.md *placeholder
-		cd ..
-		send_file $1
 	else
 		send_msg "Build Gagal!, Harap Cek lagi"
 		print "Build error !" red
