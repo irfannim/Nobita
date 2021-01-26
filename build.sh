@@ -2,7 +2,7 @@
 
 export KERNELNAME=Nobita
 
-export LOCALVERSION=
+export LOCALVERSION=-HMP
 
 export KBUILD_BUILD_USER=irfannim
 
@@ -16,7 +16,7 @@ source helper
 
 gen_toolchain
 
-send_msg "Build Di Mulai for ${DEVICES}..."
+send_msg "Memulai Build Kernel ${DEVICES}..."
 
 START=$(date +"%s")
 
