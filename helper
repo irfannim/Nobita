@@ -41,7 +41,7 @@ send_msg(){
 send_file(){
 	print "Sending file..." green
 	curl -F chat_id="${chat_id}" \
-		-F caption="Build Berhasil! | Nobita ${type} | fanproject" \
+		-F caption="Build Berhasil! | Nobita ${type} | #funproject" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
 }
@@ -79,7 +79,7 @@ gen_toolchain(){
 	print "Cloning toolchain files..." green
 	if [ $TOOLCHAIN == "clang" ]
 	then
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
+		git clone --depth=1 https://github.com/GenkKapak/GenkKapak-clang clang
 	else
 		git clone --depth=1 https://github.com/chips-project/aarch64-elf gcc64
 		git clone --depth=1 https://github.com/chips-project/arm-eabi gcc32
