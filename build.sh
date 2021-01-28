@@ -6,7 +6,7 @@ export LOCALVERSION=-HMP
 
 export KBUILD_BUILD_USER=irfannim
 
-export KBUILD_BUILD_HOST=fanproject
+export KBUILD_BUILD_HOST=#funproject
 
 export TOOLCHAIN=clang
 
