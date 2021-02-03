@@ -41,7 +41,7 @@ send_msg(){
 send_file(){
 	print "Sending file..." green
 	curl -F chat_id="${chat_id}" \
-		-F caption="Build Berhasil! | Nobita ${type} | #funproject" \
+		-F caption="Build Berhasil! | Nobita | #funproject" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
 }
@@ -49,8 +49,8 @@ send_file(){
 mkzip(){
 	print "Generate zip file..." green
 
-	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz ]; then
-		cp $(pwd)/out/arch/arm64/boot/Image.gz  anykernel
+	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz-dtb ]; then
+		cp $(pwd)/out/arch/arm64/boot/Image.gz-dtb  anykernel
 		cd anykernel
 		zip -r9 ../$1 * -x .git README.md *placeholder
 		cd ..
