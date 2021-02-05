@@ -2,7 +2,7 @@
 
 export KERNELNAME=Nobita
 
-export LOCALVERSION=-HMP
+export LOCALVERSION=HMP
 
 export KBUILD_BUILD_USER=irfannim
 
@@ -23,7 +23,7 @@ START=$(date +"%s")
 for i in ${DEVICES//,/ }
 do 
 
-	build ${i} Kernel
+	build ${i} -Kernel
 
 done
 
@@ -31,4 +31,4 @@ END=$(date +"%s")
  
 DIFF=$(( END - START ))
 
-send_msg "Build Telah Sukses $((DIFF / 60))m $((DIFF % 60))s | Last commit: $(git log --pretty=format:'%h : %s' -5)"
+send_msg "BUILD telah SUKSES dalam $((DIFF / 60))m:$((DIFF % 60))s | komit akhirmu adalah: $(git log --pretty=format:'%h : %s' -5)"
