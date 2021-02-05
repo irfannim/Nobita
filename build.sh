@@ -23,10 +23,12 @@ START=$(date +"%s")
 for i in ${DEVICES//,/ }
 do 
 
-	build ${i} -oldcam
+	build ${i} Kernel
 
 done
 
 END=$(date +"%s")
  
 DIFF=$(( END - START ))
+
+send_msg "Build Telah Sukses $((DIFF / 60))m $((DIFF % 60))s | Last commit: $(git log --pretty=format:'%h : %s' -5)"
