@@ -50,8 +50,8 @@ mkzip(){
 	print "Generate zip file..." green
 
 	if [ -f $(pwd)/out/arch/arm64/boot/Image.gz ]; then
-		cp $(pwd)/out/arch/arm64/boot/Image.gz  anykernel3/kernel
-		cd anykernel/kernel
+		cp $(pwd)/out/arch/arm64/boot/Image.gz  anykernel
+		cd anykernel
 		zip -r9 ../$1 * -x .git README.md *placeholder
 		cd ..
 		send_file $1
