@@ -82,7 +82,7 @@ static struct step_chg_info *the_chip;
  * Supports VBATT and SOC based source
  * range data must be in increasing ranges and shouldn't overlap
  */
-static struct step_chg_cfg step_chg_config = {
+static struct step_chg_cfg step_chg_config = {AAAAAA
 	.psy_prop	= POWER_SUPPLY_PROP_VOLTAGE_NOW,
 	.prop_name	= "VBATT",
 	.hysteresis	= 100000, /* 100mV */
@@ -137,7 +137,7 @@ static struct jeita_fcc_cfg jeita_fcc_config = {
 	.hysteresis	= 0, /* 1degC hysteresis */
 	.fcc_cfg	= {
 		/* TEMP_LOW	TEMP_HIGH	FCC */
-		{0,			50,			 400000},
+		{0,		50,		400000},
 		{51,		150,		1200000},
 		{151,		430,		2500000},
 		{431,		450,		2000000},
@@ -152,13 +152,11 @@ static struct jeita_fcc_cfg jeita_fcc_config = {
 	.hysteresis	= 0, /* 1degC hysteresis */
 	.fcc_cfg	= {
 		/* TEMP_LOW	TEMP_HIGH	FCC */
-		{0,			50,			 400000},
+		{0,		50,		400000},
 		{51,		150,		1200000},
-		{151,		400,		2500000},
-		{401,		430,		2000000},
-		{431,		450,		1500000},
-		{451,		470,		1000000},
-		{471,		600,		 600000},
+		{151,		430,		2500000},
+		{431,		450,		2000000},
+		{451,		600,		1500000},
 	},
 };
 #elif defined(CONFIG_KERNEL_CUSTOM_E7T)
@@ -168,13 +166,11 @@ static struct jeita_fcc_cfg jeita_fcc_config = {
 	.hysteresis	= 0, /* 1degC hysteresis */
 	.fcc_cfg	= {
 		/* TEMP_LOW	TEMP_HIGH	FCC */
-		{0,			50,			 400000},
+		{0,		50,		400000},
 		{51,		150,		1200000},
-		{151,		400,		2500000},
-		{401,		430,		2000000},
-		{431,		450,		1500000},
-		{451,		470,		1000000},
-		{471,		600,		 600000},
+		{151,		430,		2500000},
+		{431,		450,		2000000},
+		{451,		600,		1500000},
 	},
 };
 #endif
